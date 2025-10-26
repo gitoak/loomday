@@ -1,0 +1,5 @@
+package dev.gitoak.loomday
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
