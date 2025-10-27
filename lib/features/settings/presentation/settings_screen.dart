@@ -15,7 +15,7 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.home, size: 96, color: Colors.blueAccent),
+              const Icon(Icons.home, size: 96),
               const SizedBox(height: 16),
               const Text(
                 'Settings',
