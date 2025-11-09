@@ -28,10 +28,6 @@
   "@settingsLanguageGerman": {
     "description": "Option to select German language"
   },
-  "settingsLanguageSubtitle": "Choose the language used in the app",
-  "@settingsLanguageSubtitle": {
-    "description": "Subtitle for the language selection in settings"
-  },
   "genericError": "An error occurred",
   "@genericError": {
     "description": "A generic error message"

@@ -139,12 +139,6 @@ abstract class AppLocalizations {
   /// **'German'**
   String get settingsLanguageGerman;
 
-  /// Subtitle for the language selection in settings
-  ///
-  /// In en, this message translates to:
-  /// **'Choose the language used in the app'**
-  String get settingsLanguageSubtitle;
-
   /// A generic error message
   ///
   /// In en, this message translates to:

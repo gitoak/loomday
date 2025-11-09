@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../l10n/app_localizations.dart';
+import 'widgets/language_selector.dart';
 
 /// Settings Screen
 class SettingsScreen extends StatelessWidget {
@@ -10,34 +9,24 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final t = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final outline = theme.colorScheme.outline;
+    final borderColor = outline.withAlpha(Color.getAlphaFromOpacity(0.3));
 
-    return Scaffold(
-      appBar: AppBar(title: Text(t.appTitle), centerTitle: true),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.settings, size: 96),
-              const SizedBox(height: 16),
-              Text(
-                t.settingsTitle,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  context.go('/');
-                },
-                child: const Text('Go to Home'),
-              ),
-            ],
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
+        children: [
+          Card(
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(color: borderColor),
+            ),
+            elevation: 0,
+            child: const LanguageSelector(),
           ),
-        ),
+        ],
       ),
     );
   }

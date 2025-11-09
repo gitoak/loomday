@@ -17,6 +17,7 @@ class MyApp extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
     final env = ref.watch(envProvider);
     final themeSet = ref.watch(appThemeProvider);
+    final locale = ref.watch(localeControllerProvider);
 
     ref.read(loggerProvider).d('Booting app with env: ${env.name}');
 
@@ -25,7 +26,7 @@ class MyApp extends ConsumerWidget {
       routerConfig: router,
       theme: themeSet.light,
       darkTheme: themeSet.dark,
-      locale: AppLocalizations.supportedLocales.last,
+      locale: locale,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: const [
         AppLocalizations.delegate,

@@ -30,8 +30,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguageGerman => 'German';
 
   @override
-  String get settingsLanguageSubtitle => 'Choose the language used in the app';
-
-  @override
   String get genericError => 'An error occurred';
 }
