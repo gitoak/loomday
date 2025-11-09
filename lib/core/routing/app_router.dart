@@ -5,11 +5,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../l10n/app_localizations.dart';
+import 'routes.dart';
 
 /// AppRouter-Provider
 final appRouterProvider = Provider<GoRouter>((final ref) {
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: AppRoute.home.path,
     routes: [
       ShellRoute(
         builder: (final context, final state, final child) {
@@ -17,11 +18,11 @@ final appRouterProvider = Provider<GoRouter>((final ref) {
         },
         routes: [
           GoRoute(
-            path: '/',
+            path: AppRoute.home.path,
             builder: (final ctx, final state) => const HomeScreen(),
           ),
           GoRoute(
-            path: '/settings',
+            path: AppRoute.settings.path,
             builder: (final ctx, final state) => const SettingsScreen(),
           ),
         ],
@@ -43,7 +44,8 @@ class MainScaffold extends StatelessWidget {
   Widget build(final BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final location = GoRouterState.of(context).uri.toString();
-    final selectedIndex = location == '/' ? 0 : 1;
+    final currentRoute = AppRoute.fromPath(location);
+    final selectedIndex = currentRoute?.navIndex ?? 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -64,11 +66,8 @@ class MainScaffold extends StatelessWidget {
         ],
         currentIndex: selectedIndex,
         onTap: (final index) {
-          if (index == 0) {
-            context.go('/');
-          } else if (index == 1) {
-            context.go('/settings');
-          }
+          final route = AppRoute.fromNavIndex(index);
+          context.go(route.path);
         },
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'core/di/config/flavor.dart';
 import 'core/di/providers.dart';
 import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
@@ -19,10 +20,10 @@ class MyApp extends ConsumerWidget {
     final themeSet = ref.watch(appThemeProvider);
     final locale = ref.watch(localeControllerProvider);
 
-    ref.read(loggerProvider).d('Booting app with env: ${env.name}');
+    ref.read(loggerProvider).d('Booting app with env: ${env.displayName}');
 
     return MaterialApp.router(
-      debugShowCheckedModeBanner: env.name != 'prod',
+      debugShowCheckedModeBanner: env.flavor != AppFlavor.prod,
       routerConfig: router,
       theme: themeSet.light,
       darkTheme: themeSet.dark,

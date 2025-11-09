@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/constants/supported_languages.dart';
 import '../../../../core/di/providers.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -183,12 +184,11 @@ String _labelFor(final Locale? option, final AppLocalizations loc) {
     return loc.settingsLanguageSystem;
   }
 
-  switch (option.languageCode) {
-    case 'en':
+  final language = SupportedLanguage.fromLanguageCode(option.languageCode);
+  switch (language) {
+    case SupportedLanguage.en:
       return loc.settingsLanguageEnglish;
-    case 'de':
+    case SupportedLanguage.de:
       return loc.settingsLanguageGerman;
-    default:
-      return option.languageCode;
   }
 }
