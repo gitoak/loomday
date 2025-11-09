@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// Home Screen
 class HomeScreen extends StatelessWidget {
   /// Constructor
@@ -8,8 +10,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('loomday'), centerTitle: true),
+      appBar: AppBar(title: Text(t.appTitle), centerTitle: true),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -17,9 +21,12 @@ class HomeScreen extends StatelessWidget {
             children: [
               const Icon(Icons.home, size: 96),
               const SizedBox(height: 16),
-              const Text(
-                'Home',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              Text(
+                t.homeTitle,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 16),
               ElevatedButton(

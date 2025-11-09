@@ -1,0 +1,39 @@
+{
+  "@@locale": "en",
+  "appTitle": "Your App",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "homeTitle": "Home",
+  "@homeTitle": {
+    "description": "The title of the home screen"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "The title of the settings screen"
+  },
+  "settingsLanguage": "Language",
+  "@settingsLanguage": {
+    "description": "Label for the language selection in settings"
+  },
+  "settingsLanguageSystem": "System default",
+  "@settingsLanguageSystem": {
+    "description": "Option to use the system default language"
+  },
+  "settingsLanguageEnglish": "English",
+  "@settingsLanguageEnglish": {
+    "description": "Option to select English language"
+  },
+  "settingsLanguageGerman": "German",
+  "@settingsLanguageGerman": {
+    "description": "Option to select German language"
+  },
+  "settingsLanguageSubtitle": "Choose the language used in the app",
+  "@settingsLanguageSubtitle": {
+    "description": "Subtitle for the language selection in settings"
+  },
+  "genericError": "An error occurred",
+  "@genericError": {
+    "description": "A generic error message"
+  }
+}

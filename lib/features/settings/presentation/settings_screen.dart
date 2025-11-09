@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// Settings Screen
 class SettingsScreen extends StatelessWidget {
   /// Constructor
@@ -8,18 +10,23 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('loomday'), centerTitle: true),
+      appBar: AppBar(title: Text(t.appTitle), centerTitle: true),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.home, size: 96),
+              const Icon(Icons.settings, size: 96),
               const SizedBox(height: 16),
-              const Text(
-                'Settings',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              Text(
+                t.settingsTitle,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 16),
               ElevatedButton(

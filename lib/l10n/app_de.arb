@@ -1,0 +1,12 @@
+{
+  "@@locale": "de",
+  "appTitle": "Deine App",
+  "homeTitle": "Start",
+  "settingsTitle": "Einstellungen",
+  "settingsLanguage": "Sprache",
+  "settingsLanguageSystem": "Systemsprache",
+  "settingsLanguageEnglish": "Englisch",
+  "settingsLanguageGerman": "Deutsch",
+  "settingsLanguageSubtitle": "Wähle die Sprache der App",
+  "genericError": "Ein Fehler ist aufgetreten"
+}
