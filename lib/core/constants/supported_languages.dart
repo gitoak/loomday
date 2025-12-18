@@ -1,3 +1,5 @@
+import '../errors/validation_error.dart';
+
 /// Supported languages in the app.
 /// This enum should be updated when adding new languages to keep the code type-safe.
 enum SupportedLanguage {
@@ -16,7 +18,9 @@ enum SupportedLanguage {
   static SupportedLanguage fromLanguageCode(final String code) {
     return SupportedLanguage.values.firstWhere(
       (final lang) => lang.languageCode == code,
-      orElse: () => throw ArgumentError('Unsupported language code: $code'),
+      orElse: () => throw ValidationError(
+        fieldErrors: <String, String>{'languageCode': code},
+      ),
     );
   }
 }

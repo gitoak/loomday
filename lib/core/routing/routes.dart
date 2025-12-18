@@ -1,3 +1,5 @@
+import '../errors/validation_error.dart';
+
 /// Defines the app's navigation routes and their properties.
 enum AppRoute {
   /// Home screen route.
@@ -18,7 +20,8 @@ enum AppRoute {
   static AppRoute? fromPath(final String path) {
     return AppRoute.values.firstWhere(
       (final route) => route.path == path,
-      orElse: () => throw ArgumentError('Unknown route path: $path'),
+      orElse: () =>
+          throw ValidationError(fieldErrors: <String, String>{'path': path}),
     );
   }
 
@@ -26,7 +29,9 @@ enum AppRoute {
   static AppRoute fromNavIndex(final int index) {
     return AppRoute.values.firstWhere(
       (final route) => route.navIndex == index,
-      orElse: () => throw ArgumentError('Unknown nav index: $index'),
+      orElse: () => throw ValidationError(
+        fieldErrors: <String, String>{'navIndex': '$index'},
+      ),
     );
   }
 }
